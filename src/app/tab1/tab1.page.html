@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+	<ion-toolbar>
+		<ion-title>
+			Tab 1
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<ion-header collapse="condense">
+		<ion-toolbar>
+			<ion-title size="large">Record List</ion-title>
+		</ion-toolbar>
+	</ion-header>
+	<ion-list *ngFor="let student of students">
+		<ion-item-sliding>
+			<ion-item>
+				<ion-avatar>
+					<p>{{ student.id }}</p>
+				</ion-avatar>
+				<ion-label>
+					<h3 class="title">{{student.fullname}}</h3>
+					<p class="subtext">
+						{{'Email : ' +student.email + ' Pass : ' + student.password}}
+					</p>
+				</ion-label>
+			</ion-item>
+			<ion-item-options side="end">
+				<ion-item-option color="danger" (click)="removeStudent(student.id)">
+					Delete
+				</ion-item-option>
+				<ion-item-option color="success" (click)="updateStudent(student)">
+					Edit
+				</ion-item-option>
+			</ion-item-options>
+		</ion-item-sliding>
+	</ion-list>
+	<ion-button color="primary" (click)="addStudent()">
+		Add New
+	</ion-button>
+</ion-content>

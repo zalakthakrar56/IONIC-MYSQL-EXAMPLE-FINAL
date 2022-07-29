@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="closeModel()">
+        Close
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Student {{ isUpdate ? 'Update' : 'Add' }} Modal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input [(ngModel)]="data.fullname" name="fullname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="data.email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [(ngModel)]="data.password" name="password"></ion-input>
+    </ion-item>
+    <ion-button type="submit" expand="full" color="primary">
+      {{ isUpdate ? 'Update' : 'Save' }} Record
+    </ion-button>
+  </form>
+</ion-content>
