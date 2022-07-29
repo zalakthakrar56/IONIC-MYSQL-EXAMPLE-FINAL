@@ -8,3 +8,4 @@ $con = mysqli_connect("localhost","root","","ionic") or die(mysqli_error($con));
 $query = "DELETE FROM `register` where id=$id";
 mysqli_query($con,$query) or die(mysqli_error($con));
 echo json_encode("Record Delete");
+?>
